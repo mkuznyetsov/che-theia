@@ -128,7 +128,7 @@ jobs:
           kubectl cp che-theia-meta.yaml $DEPLOY_POD_NAME:/usr/local/apache2/htdocs/
           kubectl cp devfile.yaml $DEPLOY_POD_NAME:/usr/local/apache2/htdocs/
 
-          echo "::set-output name=devfile-url::http://custom-devfile.$(minikube ip).nip.io/devfile.yaml"
+          echo "devfile-url=http://custom-devfile.$(minikube ip).nip.io/devfile.yaml" >> $GITHUB_OUTPUT
           echo "devfile yaml content from http://custom-devfile.$(minikube ip).nip.io/devfile.yaml is:"
           curl http://custom-devfile.$(minikube ip).nip.io/devfile.yaml
           echo "che-theia-meta.yaml content from http://custom-devfile.$(minikube ip).nip.io/che-theia-meta.yaml is:"
